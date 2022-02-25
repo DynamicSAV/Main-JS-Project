@@ -1,0 +1,263 @@
+body {
+  height: 200px;
+  background: url(https://phonoteka.org/uploads/posts/2021-06/1624445253_35-phonoteka_org-p-golubie-oboi-anime-krasivo-35.png);
+}
+
+/* https://phonoteka.org/uploads/posts/2021-06/1624445253_35-phonoteka_org-p-golubie-oboi-anime-krasivo-35.png */
+/* https://mangazworld.com/wp-content/uploads/2017/10/wallhaven-551939.png */
+/* https://phonoteka.org/uploads/posts/2021-06/1624445253_35-phonoteka_org-p-golubie-oboi-anime-krasivo-35.png */
+
+/* Шапка страницы */
+.navigationHeader {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  padding-top: 5px;
+  border-radius: 10px;
+}
+#header {
+  margin: 0 auto;
+  width: 100%;
+  height: 25%;
+  border-radius: 5px;
+  background: -o-repeating-linear-gradient();
+}
+
+input {
+  margin-left: 1rem;
+}
+
+.defaultButton {
+  border: 0;
+  height: 100px;
+  width: 100px;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow:  5px 5px 100px #e2e2e2,
+  -5px -5px 100px #ffffff;
+  font-size: 1.2rem;
+  font-family: unset;
+  font-weight: bold;
+}
+.defaultButton:hover {
+  box-shadow:  5px 5px 100px #ffffff,
+  -5px -5px 100px #bebebe;
+}
+.defaultButton:active {
+  box-shadow: none;
+}
+
+
+/* Кнопки навигации */
+#headerBut {
+  margin-inline: 20px;
+  margin-trim: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  appearance: none;
+  border: 0;
+  background: #4676d7;
+  color: #fff;
+  padding: 3px 16px;
+  font-size: 32px;
+}
+#headerBut:hover {
+  box-shadow: 3px 3px 3px #3a3a3a6c;
+  background: #1d49aa;
+}
+#headerBut:focus {
+  outline: none;
+  /* box-shadow: 0 0 6px 6px #1da5ff81; */
+}
+#headerBut:active {
+  outline: none;
+  box-shadow: none;
+}
+
+#listName {
+  margin: 0px 0px 5px 0px;
+  padding: 5px 5px 5px 5px;
+  width: 25vh;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 2.5em;
+  background-color: rgba(255, 255, 255, 0.466);
+  color: black;
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+}
+
+.card {
+  display: flex;
+  height: auto;
+  width: 200%;
+  height: 780px;
+  position: relative;
+  padding: 10px 10px 10px 10px;
+  margin: 0px 0px;
+  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  align-items: flex-start;
+  align-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  margin-right: 50px;
+  margin-top: 60px;
+  font-family: "Comfortaa", cursive;
+}
+
+#canvas {
+  border-radius: 10px;
+}
+#Canvas3D {
+  border-radius: 10px;
+}
+
+#funcsField {
+  width: auto;
+  height: auto;
+}
+
+#ui {
+  margin-left: 40px;
+  width: 25%;
+  top: 2px;
+  right: 5px;
+}
+
+.deleteFunc {
+  border-radius: 1px;
+  symbols: 10060;
+  border: none;
+  background: #ff5a5a;
+  box-shadow:  5px 5px 100px #e2e2e2,
+  -5px -5px 100px #ffffff;
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
+#graph2d {
+  border-radius: 15px;
+}
+#graph3D {
+  border-radius: 15px;
+}
+
+.graph2Dclass.hide {
+  display: none;
+}
+
+.graph2Dclass {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border: 10px solid #4676d7;
+  padding: 10px 20px 10px 20px;
+}
+
+.graph3DList {
+  border: 10px solid #4676d7;
+  padding: 0px 20px 20px 20px;
+  border-radius: 15px;
+}
+
+/* UI */
+.tangentLine {
+  background-color: lawngreen;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.checkLine {
+  height: 50px;
+  width: 50px;
+}
+
+/* Таблица настроек */
+td,
+th {
+  padding: 5px;
+  border-radius: 10px;
+}
+
+/* Калькулятор */
+.calculatorBlock {
+  border: 10px solid #4676d7;
+  padding: 0px 20px 20px 20px;
+  border-radius: 15px;
+  height: 89vh;
+}
+
+.display {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 40%;
+  margin-top: 1vh;
+}
+
+.calculatorInput {
+  font-size: 4vh;
+  width: 65vh;
+  max-height: 35vh;
+  border-radius: 5px;
+}
+
+.calculatorOutput {
+  font-size: 4vh;
+  width: 65vh;
+  max-height: 35vh;
+  border-radius: 5px;
+  border: none;
+}
+
+.calculatorButtons {
+  margin: 5% auto;
+  padding: 2vh 2vh 2vh 2vh;
+  /* display: flex; */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+  width: 53vh;
+}
+
+.calculatorOperationButton {
+  height: 8vh;
+  width: 16vh;
+  font-size: 2.8vh;
+  background-color: rgb(65, 121, 241);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  margin-left: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.calculatorOperationButton:hover {
+  background-color: rgb(73, 85, 255);
+}
+
+.calculatorOperationButton:active {
+  box-shadow: none;
+}
+
+.calculatorLine {
+  height: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: rgb(0, 119, 255);
+}
