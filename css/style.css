@@ -119,10 +119,21 @@ input {
 #Canvas3D {
   border-radius: 10px;
 }
-
 #funcsField {
   width: auto;
   height: auto;
+}
+.settingsPanel{
+  width: 100%;
+  position: relative;
+  padding: 10px 10px 10px 10px;
+  margin-left: 10rem;
+  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 #ui {
@@ -166,8 +177,10 @@ input {
 }
 
 .graph3DList {
+  display: flex;
+  align-content: space-between;
   border: 10px solid #4676d7;
-  padding: 0px 20px 20px 20px;
+  padding: 10px 10px 10px 10px;
   border-radius: 15px;
 }
 

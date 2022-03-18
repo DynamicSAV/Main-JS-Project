@@ -17,12 +17,16 @@ class Graph3D {
     );
   }
 
+  sortByArtistAlgorithm(figure) {
+    figure.polygons.sort((a, b) => a.distance - b.distance);
+  }
+
   multMatrix(T, m) {
     let matrLength = m.length;
     let matrZoom = [0, 0, 0, 0];
     for (let i = 0; i < matrLength; i++) {
       for (let j = 0; j < matrLength; j++) {
-        matrZoom[j] += T[i][j] * m[j];
+        matrZoom[i] += T[i][j] * m[j];
       }
     }
     return matrZoom;
@@ -42,6 +46,9 @@ class Graph3D {
     point.y = array[1];
     point.z = array[2];
   }
+
+  
+
 
   rotateOx(alpha, point) {
     const array = this.multMatrix(
@@ -85,4 +92,28 @@ class Graph3D {
     point.y = array[1];
     point.z = array[2];
   }
+
+  calcDistance(figure) {
+    figure.polygons.forEach((polygon) => {
+      const points = polygon.points;
+      let x = 0,
+        y = 0,
+        z = 0;
+      for (let i = 0; i < points.length; i++) {
+        x += figure.points[points[i]].x;
+        y += figure.points[points[i]].y;
+        z += figure.points[points[i]].z;
+      }
+      x /= points.length;
+      y /= points.length;
+      z /= points.length;
+
+      polygon.distance = Math.sqrt(
+        Math.pow(this.WIN.CAMERA.x - x, 2) +
+          Math.pow(this.WIN.CAMERA.y - y, 2) +
+          Math.pow(this.WIN.CAMERA.z - z, 2)
+      );
+    });
+  }
+
 }

@@ -89,14 +89,25 @@ class Canvas {
   }
 
   polygon(points, color = '#FF800055') {
-      this.context.fillStyle = color;
-      this.context.beginPath();
-      this.context.moveTo(this.xs(points[0].x), this.ys(0));
-      for (let i = 1; i < points.length; i++) {
-          this.context.lineTo(this.xs(points[i].x), this.ys(points[i].y));
-      }
-      this.context.lineTo(this.xs(points[0].x), this.ys(0))
-      this.context.closePath();
-      this.context.fill();
-  }
+    this.context.fillStyle = color;
+    this.context.beginPath();
+    this.context.moveTo(this.xs(points[0].x), this.ys(points[0].y));
+    for (let i = 1; i < points.length; i++) {
+        this.context.lineTo(this.xs(points[i].x), this.ys(points[i].y));
+    }
+    this.context.lineTo(this.xs(points[0].x), this.ys(points[0].y))
+    this.context.closePath();
+    this.context.fill();
+}
+//   polygon(points, color = '#FF800055') {
+//       this.context.fillStyle = color;
+//       this.context.beginPath();
+//       this.context.moveTo(this.xs(points[0]), this.ys(points[0]));//(points[0].y)
+//       for (let i = 1; i < points.length; i++) {
+//           this.context.lineTo(this.xs(points[i]), this.ys(points[i]));
+//       }
+//       this.context.lineTo(this.xs(points[0]), this.ys(points[0]))
+//       this.context.closePath();
+//       this.context.fill();
+//   }
 }

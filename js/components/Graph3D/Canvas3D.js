@@ -21,7 +21,6 @@ class Canvas3D {
       this.context.stroke();
   }
 
-
   xs(x) {
       return this.canvas.width * (x - this.WIN.LEFT) / this.WIN.WIDTH;
   }
