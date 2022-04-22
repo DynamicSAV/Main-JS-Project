@@ -1,4 +1,7 @@
-figure.prototype.Cube = () => {
+figure.prototype.Cube = (
+  color = "black",//#ff0000
+  animations = []
+) => {
   const points = [
     new Point(-5, -5, 5),
     new Point(-5, 5, 5),
@@ -24,12 +27,12 @@ figure.prototype.Cube = () => {
     new Edge(6, 7),
   ];
   const polygons = [
-    new Polygon([0, 1, 2, 3], 'red' ),
-    new Polygon([0, 4, 7, 3], 'red' ),
-    new Polygon([0 ,4, 5, 1], 'red' ),
-    new Polygon([4, 5, 6, 7], 'red' ),
-    new Polygon([7, 3, 2, 6], 'red' ),
-    new Polygon([1, 5, 6, 2], 'red' ),
+    new Polygon([0, 1, 2, 3], color),
+    new Polygon([0, 4, 7, 3], color),
+    new Polygon([0, 4, 5, 1], color),
+    new Polygon([4, 5, 6, 7], color),
+    new Polygon([7, 3, 2, 6], color),
+    new Polygon([1, 5, 6, 2], color),
   ];
   return new Subject(points, edges, polygons);
 };

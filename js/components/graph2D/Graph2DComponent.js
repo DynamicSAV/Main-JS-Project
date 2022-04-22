@@ -26,9 +26,9 @@ class Graph2DComponent extends Component {
       height: 800,
       callbacks: {
         wheel: (event) => (event.preventDefault(), this.wheel(event)),
-        up: () => this.up(),
-        down: () => this.down(),
-        move: (event) => this.move(event),
+        mouseup: () => this.mouseup(),
+        mousedown: () => this.mousedown(),
+        mousemove: (event) => this.mousemove(event),
       },
     });
 
@@ -208,14 +208,14 @@ class Graph2DComponent extends Component {
     }
   }
 
-  down() {
+  mousedown() {
     this.canMove = true;
   }
-  up() {
+  mouseup() {
     this.canMove = false;
   }
 
-  move(event) {
+  mousemove(event) {
     if (this.canMove) {
       this.WIN.LEFT -= this.canvas.sx(event.movementX);
       this.WIN.BOTTOM -= this.canvas.sy(event.movementY);

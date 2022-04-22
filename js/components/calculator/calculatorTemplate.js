@@ -1,6 +1,5 @@
 Template.prototype.calculatorTemplate = () => `
 <div class = "calculatorBlock">
-  <p id = "listName">Калькулятор <i class="fas fa-calculator"></i></p>
   <div class = "display">
     <textarea class = "calculatorInput" placeholder = "First num" id = "a"></textarea>
     <textarea class = "calculatorInput" placeholder = "Second num" id = "b"></textarea>

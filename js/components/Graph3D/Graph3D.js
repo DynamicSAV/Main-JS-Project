@@ -9,7 +9,6 @@ class Graph3D {
       (this.WIN.CAMERA.z - point.z)
     );
   }
-
   ys(point) {
     return (
       (point.y * (this.WIN.CAMERA.z - this.WIN.DISPLAY.z)) /
@@ -17,19 +16,23 @@ class Graph3D {
     );
   }
 
-  sortByArtistAlgorithm(figure) {
-    figure.polygons.sort((a, b) => a.distance - b.distance);
+  calcIllumination(distance, lumen) {
+    const res = distance ? lumen / Math.pow(distance, 3) : 1;
+    return res > 1 ? 1 : res;
   }
 
-  multMatrix(T, m) {
-    let matrLength = m.length;
-    let matrZoom = [0, 0, 0, 0];
-    for (let i = 0; i < matrLength; i++) {
-      for (let j = 0; j < matrLength; j++) {
-        matrZoom[i] += T[i][j] * m[j];
+  sortByArtistAlgorithm(polygons) {
+    polygons.sort((a, b) => a.distance - b.distance);
+  }
+
+  multMatrix(delta, defMatrix) {
+    const newMatrix = [0, 0, 0, 0];
+    for (let i = 0; i < delta.length; i++) {
+      for (let j = 0; j < delta.length; j++) {
+        newMatrix[i] += defMatrix[j] * delta[i][j];
       }
     }
-    return matrZoom;
+    return newMatrix;
   }
 
   zoom(delta, point) {
@@ -46,9 +49,14 @@ class Graph3D {
     point.y = array[1];
     point.z = array[2];
   }
-
-  
-
+  moveOx(dx, dy, dz) {
+    return [
+      [1, 0, 0, dx],
+      [0, 1, 0, dy],
+      [0, 0, 1, dz],
+      [0, 0, 0, 1],
+    ];
+  }
 
   rotateOx(alpha, point) {
     const array = this.multMatrix(
@@ -93,6 +101,13 @@ class Graph3D {
     point.z = array[2];
   }
 
+  transformation(matrix, point) {
+    const array = this.multMatrix(matrix, [point.x, point.y, point.z, 1]);
+    point.x = array[0];
+    point.y = array[1];
+    point.z = array[2];
+  }
+
   calcDistance(figure) {
     figure.polygons.forEach((polygon) => {
       const points = polygon.points;
@@ -115,5 +130,46 @@ class Graph3D {
       );
     });
   }
+  // calcDistance(figure, endPoint, name) {
+  //   figure.polygons.forEach((polygon) => {
+  //     const points = polygon.points;
+  //     let x = 0,
+  //       y = 0,
+  //       z = 0;
+  //     for (let i = 0; i < points.length; i++) {
+  //       x += figure.points[points[i]].x;
+  //       y += figure.points[points[i]].y;
+  //       z += figure.points[points[i]].z;
+  //     }
+  //     x /= points.length;
+  //     y /= points.length;
+  //     z /= points.length;
 
+  //     figure.polygons[i][name] = Math.sqrt(
+  //       Math.pow(endPoint.x - x, 2) +
+  //         Math.pow(endPoint.y - y, 2) +
+  //         Math.pow(endPoint.z - z, 2)
+  //     );
+  //   });
+  // }
+
+  // calcDistance(figure, endPoint, name) {
+  //   figure.polygons.forEach(polygon => {
+  //       const points = polygon.points;
+  //       let x = 0, y = 0, z = 0;
+  //       for (let i = 0; i < points.length; i++) {
+  //           x += figure.points[points[i]].x;
+  //           y += figure.points[points[i]].y;
+  //           z += figure.points[points[i]].z;
+  //       }
+  //       x = x / points.length;
+  //       y = y / points.length;
+  //       z = z / points.length;
+  //       polygon[name] = Math.sqrt(
+  //           Math.pow(endPoint.x - x, 2) +
+  //           Math.pow(endPoint.y - y, 2) +
+  //           Math.pow(endPoint.z - z, 2)
+  //       )
+  //   });
+  // }
 }

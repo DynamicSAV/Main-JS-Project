@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+* {
+  font-family: 'Oswald', sans-serif;
+}
+
 body {
   height: 200px;
   background: url(https://phonoteka.org/uploads/posts/2021-06/1624445253_35-phonoteka_org-p-golubie-oboi-anime-krasivo-35.png);
@@ -28,10 +33,6 @@ body {
   background: -o-repeating-linear-gradient();
 }
 
-input {
-  margin-left: 1rem;
-}
-
 .defaultButton {
   border: 0;
   height: 100px;
@@ -41,7 +42,7 @@ input {
   box-shadow:  5px 5px 100px #e2e2e2,
   -5px -5px 100px #ffffff;
   font-size: 1.2rem;
-  font-family: unset;
+  /* font-family: unset; */
   font-weight: bold;
 }
 .defaultButton:hover {
@@ -57,22 +58,20 @@ input {
 #headerBut {
   margin-inline: 20px;
   margin-trim: 0px;
+  margin-top: 3px;
+  border: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   appearance: none;
-  border: 0;
   background: #4676d7;
   color: #fff;
   padding: 3px 16px;
   font-size: 32px;
 }
 #headerBut:hover {
+  cursor: pointer;
   box-shadow: 3px 3px 3px #3a3a3a6c;
   background: #1d49aa;
-}
-#headerBut:focus {
-  outline: none;
-  /* box-shadow: 0 0 6px 6px #1da5ff81; */
 }
 #headerBut:active {
   outline: none;
@@ -83,7 +82,7 @@ input {
   margin: 0px 0px 5px 0px;
   padding: 5px 5px 5px 5px;
   width: 25vh;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
   font-size: 2.5em;
   background-color: rgba(255, 255, 255, 0.466);
   color: black;
@@ -98,7 +97,6 @@ input {
   height: 780px;
   position: relative;
   padding: 10px 10px 10px 10px;
-  margin: 0px 0px;
   box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.1);
@@ -108,9 +106,7 @@ input {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
-  margin-right: 50px;
-  margin-top: 60px;
-  font-family: "Comfortaa", cursive;
+  /* font-family: "Comfortaa", cursive; */
 }
 
 #canvas {
@@ -127,7 +123,7 @@ input {
   width: 100%;
   position: relative;
   padding: 10px 10px 10px 10px;
-  margin-left: 10rem;
+  margin-left: 1rem;
   box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.1);
@@ -135,6 +131,16 @@ input {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
+
+.settingsPanel input {
+  height: 50px;
+  width: 50px;
+}
+
+.settingsPanel label {
+  font-size: 32px;
+}
+
 
 #ui {
   margin-left: 40px;
@@ -172,8 +178,10 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  margin-top: 15px;
   border: 10px solid #4676d7;
   padding: 10px 20px 10px 20px;
+  height: 85vh;
 }
 
 .graph3DList {
@@ -182,6 +190,7 @@ input {
   border: 10px solid #4676d7;
   padding: 10px 10px 10px 10px;
   border-radius: 15px;
+  margin-top: 15px;
 }
 
 /* UI */
@@ -209,6 +218,8 @@ th {
   padding: 0px 20px 20px 20px;
   border-radius: 15px;
   height: 89vh;
+  margin-top: 15px;
+  height: 85vh;
 }
 
 .display {
@@ -220,6 +231,7 @@ th {
 }
 
 .calculatorInput {
+  resize: none;
   font-size: 4vh;
   width: 65vh;
   max-height: 35vh;
@@ -227,6 +239,7 @@ th {
 }
 
 .calculatorOutput {
+  resize: none;
   font-size: 4vh;
   width: 65vh;
   max-height: 35vh;
@@ -273,4 +286,79 @@ th {
   margin-top: 10px;
   border-radius: 5px;
   background-color: rgb(0, 119, 255);
+}
+
+.settingsBtn {
+  height: 50px;
+  padding: 1rem;
+  border-radius: 7px;
+  margin: 5px 0;
+  -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  display: flex;
+  justify-content: baseline;
+  background: #fff;
+}
+
+.addElem {
+  width: 20%;
+  margin: 0 5px;
+  border-radius: 7px;
+  font-size: 1.5rem;
+  box-shadow: 0px 0px 5px rgb(83, 53, 255);
+  border: 2px solid #4676d7;
+  background-color: #7cfc00;
+}
+.addElem:hover {
+  cursor: pointer;
+}
+.addElem:active {
+  border: 2px solid #ffffff;
+}
+
+.colorSelection {
+  font-size: 1.5rem;
+}
+
+.dividingLine {
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  background: #d746bf;
+}
+
+#deleteAllObjects {
+  margin: 10px 10px ;
+  font-size: 1.5rem;
+  border-radius: 7px;
+  background: #ff5a5a;
+}
+
+.viewElementButton {
+  width: 20%;
+  margin: 0 5px;
+  border-radius: 7px;
+  font-size: 1.5rem;
+  border: 2px solid #4676d7;
+  background-color: #2a94f7;
+}
+
+.objectElementSelector {
+  height: 50px;
+  padding: 1rem;
+  border-radius: 7px;
+  margin: 5px 0;
+  -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  display: flex;
+  justify-content: baseline;
+  background: #fff;
+}
+.viewElementButton:hover {
+  cursor: pointer;
+}
+.viewElementButton:active {
+  border: none;
 }
