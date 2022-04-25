@@ -3,7 +3,7 @@ Template.prototype.graph3DTemplate = () => `
   <canvas id="Canvas3D"></canvas>
   <div class = "settingsPanel">
   <div class = "colorSelection">
-    <input type = "color" id = "colorSelector" value = "#ffaa22"></input>
+    <input type = "color" id = "colorSelector" value = "#bbbbbb"></input>
     <label>Выбор цвета фигуры</label>
   </div>
   <div class = "dividingLine"></div>
