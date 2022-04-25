@@ -10,9 +10,9 @@ Template.prototype.graph3DTemplate = () => `
   <div class = "settingsBtn">
     <button class = "addElem" data-figure = "Cube">Куб</button>
     <button class = "addElem" data-figure = "Sphere">Сфера</button>
-    <button class = "addElem" data-figure = "">Тор</button>
+    <button class = "addElem" data-figure = "Tor">Тор</button>
     <button class = "addElem" data-figure = "">Конус</button>
-    <button class = "addElem" data-figure = "" >Цилиндр</button>
+    <button class = "addElem" data-figure = "Cylinder" >Цилиндр</button>
   </div>
   <div class = "dividingLine"></div>
     <div class = "objectElementSelector">

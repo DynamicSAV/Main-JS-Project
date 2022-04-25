@@ -1,8 +1,8 @@
 class Polygon {
-  constructor(points = [], color = "#ffaa22", distance = 0) {
+  constructor(points = [], color = "#ffaa22") {
     this.points = points;
     this.color = this.hexToRgb(color);
-    this.distance = distance;
+    this.distance = 0;
     this.lumen = 1;
   }
   hexToRgb(hex) {
@@ -13,9 +13,9 @@ class Polygon {
           g: parseInt(resault[2], 16),
           b: parseInt(resault[3], 16),
         }
-      : { r: 0, g: 0, b: 0 };
+      : { r: 255, g: 0, b: 0 };
   }
   rgbToHex(r, g, b) {
-		return `rgb(${r},${g},${b})`; // пробелов ставить не надо
+		return `rgb(${r},${g},${b})`;
 	}
 }

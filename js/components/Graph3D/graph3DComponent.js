@@ -26,22 +26,23 @@ class Graph3DComponent extends Component {
     this.Graph3D = new Graph3D({
       WIN: this.WIN,
     });
-    //    this.figure = new figure().Cube();
     this.Canvas3D.clear();
-    this.render();
+    //this.render();
+    this.LIGHT = new Light(10, 10, 0, 50000);
     this.dx = 0;
     this.dy = 0;
     this.canRotate = false;
 
+    //Видимость элементов фигуры
     this.vertexChanger = false;
     this.edgesChanger = true;
     this.polygonsChanger = true;
-
+    //Выбор цвета
+    this.color = document.getElementById("colorSelector");
     //FPS
     let FPS = 0;
     this.FPS = 0;
     let lastTimestamp = Date.now();
-    console.log(lastTimestamp);
 
     const animLoop = () => {
       FPS++;
@@ -70,7 +71,17 @@ class Graph3DComponent extends Component {
     const addElemBtn = document.querySelectorAll(".AddElem");
     addElemBtn.forEach((elem) => {
       elem.addEventListener("click", () => {
-        this.createFigure(`(new figure).${elem.dataset.figure}();`);
+        switch (elem.dataset.figure) {
+          case "Cube":
+            return this.figures.push(new figure().Cube(this.color.value));
+          case "Sphere":
+            return this.figures.push(
+              new figure().Sphere(10, 20, this.color.value)
+            );
+          case "Tor":
+            return this.figures.push(new figure().Tor(this.color.value));
+        }
+        //this.createFigure(`(new figure).${elem.dataset.figure}();`);
       });
     });
     document.getElementById("vertexView").addEventListener("click", () => {
@@ -97,10 +108,10 @@ class Graph3DComponent extends Component {
     this.render();
   }
 
-  createFigure(parametrs = "") {
-    this.figures.push(eval(parametrs));
-    this.render();
-  }
+  // createFigure(parametrs = "") {
+  //   this.figures.push(eval(parametrs));
+  //   this.render();
+  // }
 
   wheel(event) {
     const delta = event.wheelDelta > 0 ? 1.1 : 0.9;
@@ -132,8 +143,8 @@ class Graph3DComponent extends Component {
       });
       this.dx = event.offsetX;
       this.dy = event.offsetY;
+      this.render();
     }
-    this.render();
   }
 
   moveScene(figure, dx, dy, dz) {
@@ -187,7 +198,16 @@ class Graph3DComponent extends Component {
             y: this.Graph3D.xs(figure.points[point]),
           };
         });
-        this.Canvas3D.polygon(points, this.figureColor.value);
+        const lumen = this.Graph3D.calcIllumination(
+          polygon.distance,
+          this.LIGHT.lumen
+        );
+        let { r, g, b } = polygon.color;
+        r = Math.round(r * lumen);
+        g = Math.round(g * lumen);
+        b = Math.round(b * lumen);
+        console.log(polygon.rgbToHex(r, g, b), "ooo");
+        this.Canvas3D.polygon(points, polygon.rgbToHex(r, g, b));
       });
     }
     this.figures.forEach((figure) => {
@@ -212,44 +232,8 @@ class Graph3DComponent extends Component {
       }
     });
     this.Canvas3D.text(`FPS = ${this.FPS}`, -9, 9, 18);
+
+    this.Canvas3D.line(-5, 5, 0, 0);
+    this.Canvas3D.printPoint(-5, 5);
   }
-
-  // render() {
-  //   this.Canvas3D.clear();
-  //   //Вершины, плоскости, грани
-
-  //   //Vertex
-  //   this.figure.points.forEach((point) => {
-  //     let x = this.Graph3D.xs(point);
-  //     let y = this.Graph3D.ys(point);
-  //     this.Canvas3D.printPoint(x, y);
-  //   });
-
-  //   //Edges
-  //   this.figure.edges.forEach((Edge) => {
-  //     const point1 = this.figure.points[Edge.p1]; //x
-  //     const point2 = this.figure.points[Edge.p2];
-  //     this.Canvas3D.line(
-  //       this.Graph3D.ys(point1),
-  //       this.Graph3D.xs(point1),
-  //       this.Graph3D.ys(point2),
-  //       this.Graph3D.xs(point2),
-  //       "gray"
-  //     );
-  //   });
-
-  //   //Faces
-  //   this.Graph3D.calcDistance(this.figure); // ,this.WIN.CAMERA
-  //   this.Graph3D.sortByArtistAlgorithm(this.figure);
-  //   this.figure.polygons.forEach((poly) => {
-  //     const points = [];
-  //     for (let i = 0; i < poly.points.length; i++) {
-  //       points.push({
-  //         x: this.Graph3D.ys(this.figure.points[poly.points[i]]),
-  //         y: this.Graph3D.xs(this.figure.points[poly.points[i]]),
-  //       });
-  //     }
-  //     this.Canvas3D.polygon(points, poly.color);
-  //   });
-  // }
 }

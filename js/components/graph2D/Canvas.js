@@ -102,8 +102,7 @@ class Canvas {
     this.context.stroke();
   }
 
-  polygon(points, color = "#FF800055") {
-    //#FF800055
+  polygon(points, color = '#FF800055') {
     this.context.fillStyle = color;
     this.context.beginPath();
     this.context.moveTo(this.xs(points[0].x), this.ys(points[0].y));

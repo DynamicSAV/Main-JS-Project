@@ -127,9 +127,14 @@ class Graph3D {
         Math.pow(this.WIN.CAMERA.x - x, 2) +
           Math.pow(this.WIN.CAMERA.y - y, 2) +
           Math.pow(this.WIN.CAMERA.z - z, 2)
-      );
-    });
+      )
+    })
   }
+  
+  calcIllumination(distance, lumen) {
+    const res = distance ? lumen / Math.pow(distance, 3) : 1;
+    return res > 1 ? 1 : res;
+  };
   // calcDistance(figure, endPoint, name) {
   //   figure.polygons.forEach((polygon) => {
   //     const points = polygon.points;
