@@ -26,13 +26,13 @@ class Graph3DComponent extends Component {
     this.Graph3D = new Graph3D({
       WIN: this.WIN,
     });
-    this.Canvas3D.clear();
     //this.render();
-    this.LIGHT = new Light(10, 10, 0, 50000);
+    this.LIGHT = new Light(0, 10, 10, 50000);
     this.dx = 0;
     this.dy = 0;
     this.canRotate = false;
-
+    //Освещение
+    this.lightChanger = true;
     //Видимость элементов фигуры
     this.vertexChanger = false;
     this.edgesChanger = true;
@@ -81,7 +81,6 @@ class Graph3DComponent extends Component {
           case "Tor":
             return this.figures.push(new figure().Tor(this.color.value));
         }
-        //this.createFigure(`(new figure).${elem.dataset.figure}();`);
       });
     });
     document.getElementById("vertexView").addEventListener("click", () => {
@@ -92,6 +91,9 @@ class Graph3DComponent extends Component {
     });
     document.getElementById("polygonsView").addEventListener("click", () => {
       this.polygonsViewChange();
+    });
+    document.getElementById("lightButton").addEventListener("click", () => {
+      this.lightInclusionChanger()
     });
   }
 
@@ -105,6 +107,10 @@ class Graph3DComponent extends Component {
   }
   polygonsViewChange() {
     this.polygonsChanger = !this.polygonsChanger;
+    this.render();
+  }
+  lightInclusionChanger() {
+    this.lightChanger = !this.lightChanger;
     this.render();
   }
 
@@ -137,8 +143,8 @@ class Graph3DComponent extends Component {
       const gradus = Math.PI / 180 / 4;
       this.figures.forEach((figure) => {
         figure.points.forEach((point) => {
-          this.Graph3D.rotateOy((this.dy - event.offsetY) * -gradus, point);
-          this.Graph3D.rotateOx((this.dx - event.offsetX) * -gradus, point);
+          this.Graph3D.rotateOx((this.dy - event.offsetY) * gradus, point);
+          this.Graph3D.rotateOy((this.dx - event.offsetX) * gradus, point);
         });
       });
       this.dx = event.offsetX;
@@ -166,13 +172,13 @@ class Graph3DComponent extends Component {
     this.figures.forEach((figure) => {
       switch (event.keyCode) {
         case 65:
-          return this.moveScene(figure, 0, -1, 0); //Влево
+          return this.moveScene(figure, -1, 0, 0); //Влево
         case 68:
-          return this.moveScene(figure, 0, 1, 0); //Вправо
+          return this.moveScene(figure, 1, 0, 0); //Вправо
         case 87:
-          return this.moveScene(figure, 1, 0, 0); //Вверх
+          return this.moveScene(figure, 0, 1, 0); //Вверх
         case 83:
-          return this.moveScene(figure, -1, 0, 0); //Вниз
+          return this.moveScene(figure, 0, -1, 0); //Вниз
       }
     });
   }
@@ -194,8 +200,8 @@ class Graph3DComponent extends Component {
         const figure = this.figures[polygon.figureIndex];
         const points = polygon.points.map((point) => {
           return {
-            x: this.Graph3D.ys(figure.points[point]),
-            y: this.Graph3D.xs(figure.points[point]),
+            x: this.Graph3D.xs(figure.points[point]),
+            y: this.Graph3D.ys(figure.points[point]),
           };
         });
         const lumen = this.Graph3D.calcIllumination(
@@ -206,7 +212,6 @@ class Graph3DComponent extends Component {
         r = Math.round(r * lumen);
         g = Math.round(g * lumen);
         b = Math.round(b * lumen);
-        console.log(polygon.rgbToHex(r, g, b), "ooo");
         this.Canvas3D.polygon(points, polygon.rgbToHex(r, g, b));
       });
     }
@@ -216,10 +221,10 @@ class Graph3DComponent extends Component {
           const point1 = figure.points[edge.p1];
           const point2 = figure.points[edge.p2];
           this.Canvas3D.line(
-            this.Graph3D.ys(point1),
             this.Graph3D.xs(point1),
-            this.Graph3D.ys(point2),
-            this.Graph3D.xs(point2)
+            this.Graph3D.ys(point1),
+            this.Graph3D.xs(point2),
+            this.Graph3D.ys(point2)
           );
         });
       }
@@ -232,8 +237,5 @@ class Graph3DComponent extends Component {
       }
     });
     this.Canvas3D.text(`FPS = ${this.FPS}`, -9, 9, 18);
-
-    this.Canvas3D.line(-5, 5, 0, 0);
-    this.Canvas3D.printPoint(-5, 5);
   }
 }

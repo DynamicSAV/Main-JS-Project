@@ -22,8 +22,8 @@ class Graph3D {
   }
 
   sortByArtistAlgorithm(polygons) {
-    polygons.sort((a, b) => a.distance - b.distance);
-  }
+    polygons.sort((a, b) => (b.distance - a.distance));
+}
 
   multMatrix(delta, defMatrix) {
     const newMatrix = [0, 0, 0, 0];

@@ -23,6 +23,7 @@ Template.prototype.graph3DTemplate = () => `
   <div class = "dividingLine"></div>
   <div>
     <button id = "deleteAllObjects">Очистить Сцену</button>
+    <button id = "lightButton">Освещение</button>
   </div>
 </div>
 </div>

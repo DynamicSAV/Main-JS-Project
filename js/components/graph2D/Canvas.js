@@ -72,13 +72,13 @@ class Canvas {
     }
     this.context.fillText("Y", this.xs(-1), this.WIN.HEIGHT);
   }
-  text(str, x, y, size = 18, color = 'black') {
+  text(str, x, y, size = 18, color = "black") {
     this.context.beginPath();
     this.context.font = `italic ${size}pt cursive`;
     this.context.fillStyle = color;
     this.context.fillText(str, this.xs(x), this.ys(y));
     this.context.closePath();
-}
+  }
 
   printZero(x) {
     this.context.beginPath();
@@ -91,18 +91,18 @@ class Canvas {
     this.context.stroke();
   }
 
-  printPoint(f, x) {
+  printPoint(x, y) {
     this.context.beginPath();
     this.context.strokeStyle = "lawngreen";
     this.context.fillStyle = "lawngreen";
     this.context.globalAlpha = 1;
-    this.context.arc(this.xs(x), this.ys(f), 2, Math.PI * 0, Math.PI * 2, true);
+    this.context.arc(this.xs(x), this.ys(y), 2, Math.PI * 0, Math.PI * 2, true);
     this.context.closePath();
     this.context.fill();
     this.context.stroke();
   }
 
-  polygon(points, color = '#FF800055') {
+  polygon(points, color = "#FF800055") {
     this.context.fillStyle = color;
     this.context.beginPath();
     this.context.moveTo(this.xs(points[0].x), this.ys(points[0].y));
