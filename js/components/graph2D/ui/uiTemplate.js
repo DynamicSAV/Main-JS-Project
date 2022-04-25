@@ -1,7 +1,12 @@
 Template.prototype.uiTemplate = () => `
-  <div class="card">
-    <button class = "defaultButton" id="addFunction">Добавить функцию</button>
-    <div id="funcsField"></div></td>
+  <div class="settings2D">
+    <div>
+      <button class = "defaultButton" id="addFunction">Добавить функцию</button>
+      <div id="funcsField"></div>
+    </div>
+    <div>
+    <button>empty</button>
+    </div>
   </div>
 `;
 

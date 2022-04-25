@@ -12,6 +12,7 @@ class UIComponent extends Component {
   constructor(options) {
     super(options);
     this.num = 0;
+    this.cmd = false;
   }
 
   _addEventListeners() {
@@ -26,7 +27,10 @@ class UIComponent extends Component {
     input.dataset.num = this.num;
     input.addEventListener("keyup", () => this.keyup(input));
 
-    const checkbox = document.createElement("checkbox");
+    const inputTangent = document.createElement("input");
+    inputTangent.setAttribute("type", "checkbox");
+    inputTangent.setAttribute("class", "inputTangentCheckbox");
+
 
     const button = document.createElement("button");
     button.innerHTML = "Удалить";
@@ -35,11 +39,19 @@ class UIComponent extends Component {
       this.callbacks.delFunction(input.dataset.num);
       funcsField.removeChild(input);
       funcsField.removeChild(button);
+      funcsField.removeChild(inputTangent);
     });
+
+    // const checkbox = document.createElement("input");
+    // checkbox.setAttribute("type", "checkbox");
+    // checkbox.setAttribute("id", "tangentLine");
+    
+
 
     const funcsField = document.getElementById("funcsField");
     funcsField.appendChild(input);
     funcsField.appendChild(button);
+    funcsField.appendChild(inputTangent);
     this.num++;
   }
 

@@ -183,8 +183,6 @@ class Graph2DComponent extends Component {
   render() {
     this.canvas.clear();
     this.printOXY();
-    this.start;
-    this.end;
     this.funcs.forEach((funcs) => {
       if (funcs) {
         this.printFunction(funcs.f, funcs.color, funcs.width);

@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
 * {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 body {
@@ -36,25 +36,21 @@ body {
 }
 
 .defaultButton {
+  width: 250px;
   border: 0;
-  height: 100px;
-  width: 100px;
-  border-radius: 15px;
+  height: 50px;
+  border-radius: 5px;
   background: #ffffff;
-  box-shadow:  5px 5px 100px #e2e2e2,
-  -5px -5px 100px #ffffff;
-  font-size: 1.2rem;
-  /* font-family: unset; */
+  box-shadow: 5px 5px 100px #e2e2e2, -5px -5px 100px #ffffff;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 .defaultButton:hover {
-  box-shadow:  5px 5px 100px #ffffff,
-  -5px -5px 100px #bebebe;
+  box-shadow: 5px 5px 100px #ffffff, -5px -5px 100px #bebebe;
 }
 .defaultButton:active {
   box-shadow: none;
 }
-
 
 /* Кнопки навигации */
 #headerBut {
@@ -92,10 +88,10 @@ body {
   backdrop-filter: blur(5px);
 }
 
-.card {
+.settings2D {
   display: flex;
   height: auto;
-  width: 200%;
+  width: auto;
   height: 780px;
   position: relative;
   padding: 10px 10px 10px 10px;
@@ -118,10 +114,24 @@ body {
   border-radius: 10px;
 }
 #funcsField {
-  width: auto;
-  height: auto;
+  margin: 10px 0px;
+  padding: 5px 0px 5px 5px;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  max-width: 245px;
+  min-height: 30px;
+  max-height: 700px;
+  background: #fff;
+  border-radius: 5px;
 }
-.settingsPanel{
+
+.checkTangent {
+  width: 21px;
+  height: 21px;
+}
+
+.settingsPanel {
   width: 100%;
   position: relative;
   padding: 10px 10px 10px 10px;
@@ -143,7 +153,6 @@ body {
   font-size: 32px;
 }
 
-
 #ui {
   margin-left: 40px;
   width: 25%;
@@ -156,8 +165,7 @@ body {
   symbols: 10060;
   border: none;
   background: #ff5a5a;
-  box-shadow:  5px 5px 100px #e2e2e2,
-  -5px -5px 100px #ffffff;
+  box-shadow: 5px 5px 100px #e2e2e2, -5px -5px 100px #ffffff;
   font-weight: bold;
 }
 
@@ -178,6 +186,7 @@ body {
 
 .graph2Dclass {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: flex-start;
   margin-top: 15px;
@@ -196,16 +205,11 @@ body {
 }
 
 /* UI */
-.tangentLine {
+/* .tangentLine {
   background-color: lawngreen;
   border-radius: 5px;
   font-size: 1em;
-}
-
-.checkLine {
-  height: 50px;
-  width: 50px;
-}
+} */
 
 /* Таблица настроек */
 td,
@@ -291,7 +295,7 @@ th {
 }
 
 .settingsBtn {
-  height: 50px;
+  height: auto;
   padding: 1rem;
   border-radius: 7px;
   margin: 5px 0;
@@ -299,19 +303,21 @@ th {
   -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
   box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
   display: flex;
+  flex-wrap: wrap;
   justify-content: baseline;
   background: #fff;
 }
 
 .addElem {
-  width: 20%;
-  margin: 0 5px;
+  height: 60px;
+  width: 15%;
+  margin: 5px 5px;
   border-radius: 7px;
   font-size: 1.5rem;
   color: #fff;
-  box-shadow: 0px 0px 5px rgb(83, 53, 255);
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
   border: 2px solid #3a78f3;
-  background-color: #555c66;
+  background-color: #3089e2;
 }
 .addElem:hover {
   cursor: pointer;
@@ -332,7 +338,9 @@ th {
 }
 
 #deleteAllObjects {
-  margin: 10px 10px ;
+  border: none;
+  cursor: pointer;
+  margin: 10px 10px;
   font-size: 1.5rem;
   border-radius: 7px;
   background: #ff5a5a;

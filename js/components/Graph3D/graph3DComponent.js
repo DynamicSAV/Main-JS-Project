@@ -93,7 +93,7 @@ class Graph3DComponent extends Component {
       this.polygonsViewChange();
     });
     document.getElementById("lightButton").addEventListener("click", () => {
-      this.lightInclusionChanger()
+      this.lightInclusionChanger();
     });
   }
 

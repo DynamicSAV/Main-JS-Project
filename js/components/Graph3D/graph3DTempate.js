@@ -13,6 +13,12 @@ Template.prototype.graph3DTemplate = () => `
     <button class = "addElem" data-figure = "Tor">Тор</button>
     <button class = "addElem" data-figure = "">Конус</button>
     <button class = "addElem" data-figure = "Cylinder" >Цилиндр</button>
+    <button class = "addElem" data-figure = "">Пусто</button>
+    <button class = "addElem" data-figure = "">Пусто</button>
+    <button class = "addElem" data-figure = "">Пусто</button>
+    <button class = "addElem" data-figure = "">Пусто</button>
+    <button class = "addElem" data-figure = "">Пусто</button>
+    <button class = "addElem" data-figure = "">Пусто</button>
   </div>
   <div class = "dividingLine"></div>
     <div class = "objectElementSelector">

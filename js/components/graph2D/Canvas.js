@@ -110,6 +110,7 @@ class Canvas {
       this.context.lineTo(this.xs(points[i].x), this.ys(points[i].y));
     }
     this.context.lineTo(this.xs(points[0].x), this.ys(points[0].y));
+    this.context.imageSmoothingEnabled = true;
     this.context.closePath();
     this.context.fill();
   }
