@@ -40,7 +40,6 @@ class Graph2DComponent extends Component {
     this.render();
   }
 
-
   addFunction(f, num, start, end, check, integ, inputX) {
     this.funcs[num] = {
       f,
@@ -48,18 +47,17 @@ class Graph2DComponent extends Component {
       width: 3,
       start,
       end,
-      check,
+      check: false,
       integ,
       inputX,
     };
     this.render();
   }
+
   delFunction(num) {
     this.funcs[num] = null;
     this.render();
   }
-
-
 
   printOXY() {
     let gridColor = "#65b2c6";
@@ -88,8 +86,22 @@ class Graph2DComponent extends Component {
 
     this.canvas.line(LEFT + WIDTH, 0, LEFT + WIDTH - 0.7, 0.3, "black", 1);
     this.canvas.line(LEFT + WIDTH, 0, LEFT + WIDTH - 0.7, -0.3, "black", 1);
-    this.canvas.line(0, BOTTOM + HEIGHT, 0.3, BOTTOM + HEIGHT - 0.7, "black", 1);
-    this.canvas.line(0, BOTTOM + HEIGHT, -0.3, BOTTOM + HEIGHT - 0.7, "black", 1);
+    this.canvas.line(
+      0,
+      BOTTOM + HEIGHT,
+      0.3,
+      BOTTOM + HEIGHT - 0.7,
+      "black",
+      1
+    );
+    this.canvas.line(
+      0,
+      BOTTOM + HEIGHT,
+      -0.3,
+      BOTTOM + HEIGHT - 0.7,
+      "black",
+      1
+    );
 
     this.canvas.line(LEFT, 0, WIDTH + LEFT, 0, "black");
     this.canvas.line(0, BOTTOM, 0, BOTTOM + HEIGHT, "black");
@@ -112,7 +124,6 @@ class Graph2DComponent extends Component {
   getDerivative(f, x0, dx = 0.00001) {
     return (f(x0 + dx) - f(x0)) / dx;
   }
-
 
   printDerivative(f, x0, check) {
     if (check == "true") {
@@ -141,7 +152,6 @@ class Graph2DComponent extends Component {
       return null;
     }
   }
-
 
   getIntegral(f, a, b, n = 100) {
     if (a === 0 && b === 0) {
@@ -179,13 +189,15 @@ class Graph2DComponent extends Component {
     }
   }
 
-
   render() {
     this.canvas.clear();
     this.printOXY();
     this.funcs.forEach((funcs) => {
       if (funcs) {
         this.printFunction(funcs.f, funcs.color, funcs.width);
+        if (document.querySelector(".inputTangentCheckbox").checked)
+          funcs.check = true;
+        else funcs.check = false;
         this.printDerivative(funcs.f, this.derivativeX, funcs.check);
         this.getZero(funcs.f, funcs.start, funcs.end, 0.0001);
         this.printIntegral(funcs.f, funcs.start, funcs.end, 100, funcs.integ);
@@ -193,7 +205,6 @@ class Graph2DComponent extends Component {
       }
     });
   }
-
 
   wheel(event) {
     var delta = event.wheelDelta > 0 ? -1 : 1;

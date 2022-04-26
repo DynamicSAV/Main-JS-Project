@@ -31,7 +31,6 @@ class UIComponent extends Component {
     inputTangent.setAttribute("type", "checkbox");
     inputTangent.setAttribute("class", "inputTangentCheckbox");
 
-
     const button = document.createElement("button");
     button.innerHTML = "Удалить";
     button.className = "deleteFunc";
@@ -41,13 +40,7 @@ class UIComponent extends Component {
       funcsField.removeChild(button);
       funcsField.removeChild(inputTangent);
     });
-
-    // const checkbox = document.createElement("input");
-    // checkbox.setAttribute("type", "checkbox");
-    // checkbox.setAttribute("id", "tangentLine");
     
-
-
     const funcsField = document.getElementById("funcsField");
     funcsField.appendChild(input);
     funcsField.appendChild(button);
