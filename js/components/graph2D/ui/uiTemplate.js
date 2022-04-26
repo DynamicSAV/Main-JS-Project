@@ -5,7 +5,7 @@ Template.prototype.uiTemplate = () => `
       <div id="funcsField"></div>
     </div>
     <div>
-    <button>empty</button>
+    <div>empty</div>
     </div>
   </div>
 `;

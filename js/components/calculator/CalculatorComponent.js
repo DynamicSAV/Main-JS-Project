@@ -55,20 +55,11 @@ class CalculatorComponent extends Component {
   add(a, b) {
     if (a.includes("[") || b.includes("[")) {
       let matrix1 = this.calculator.toMatrix(a);
-      // console.log(matrix1, "матрица 1");
-      // console.log(matrix1[0][0], matrix1[1][0]);
-
       let matrix2 = this.calculator.toMatrix(b);
       let result = this.calculator.add(matrix1, matrix2);
-      //console.log(result);
       result = this.calculator.toString(result);
       console.log(result, "result");
       return (this.result.value = result);
-      // console.log(matrix2, "матрица 2");
-      // console.log(matrix2[0][0], matrix2[1][0]);
-      //console.log(matrix2);
-      // let result = this.matrixCalculator.add(vector1, vector2);
-      // return this.result.value = this.vectorCalculator.toString(result)
     }
     if (a.includes("(") || b.includes("(")) {
       let vector1 = this.calculator.toVector(a);

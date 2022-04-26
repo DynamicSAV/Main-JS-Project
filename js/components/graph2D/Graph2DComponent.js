@@ -13,8 +13,8 @@ class Graph2DComponent extends Component {
       parent: this.id,
       template: template.uiTemplate,
       callbacks: {
-        addFunction: (f, num, start, end, check, integ, inputX) =>
-          this.addFunction(f, num, start, end, check, integ, inputX),
+        addFunction: (f, num, start, end, check, integ, inputX, funcIndex) =>
+          this.addFunction(f, num, start, end, check, integ, inputX, funcIndex),
         delFunction: (num) => this.delFunction(num),
       },
     });
@@ -40,7 +40,7 @@ class Graph2DComponent extends Component {
     this.render();
   }
 
-  addFunction(f, num, start, end, check, integ, inputX) {
+  addFunction(f, num, start, end, check, integ, inputX, funcIndex) {
     this.funcs[num] = {
       f,
       color: "#f23",
@@ -50,6 +50,7 @@ class Graph2DComponent extends Component {
       check: false,
       integ,
       inputX,
+      funcIndex,
     };
     this.render();
   }
@@ -107,15 +108,15 @@ class Graph2DComponent extends Component {
     this.canvas.line(0, BOTTOM, 0, BOTTOM + HEIGHT, "black");
   }
 
-  printFunction(f) {
+  printFunction(f, color = "red", width = "2") {
     var x = this.WIN.LEFT;
     var dx = 0.04;
     while (x < this.WIN.WIDTH + this.WIN.LEFT) {
       if (Math.abs(f(x) - f(x + dx)) < 100) {
-        this.canvas.line(x, f(x), x + dx, f(x + dx), "red", 2, false);
+        this.canvas.line(x, f(x), x + dx, f(x + dx), color, width, false);
         x += dx;
       } else {
-        this.canvas.line(x, f(x), x + dx, f(x + dx), "red", 2, true);
+        this.canvas.line(x, f(x), x + dx, f(x + dx), color, width, true);
         x += dx;
       }
     }
@@ -126,7 +127,7 @@ class Graph2DComponent extends Component {
   }
 
   printDerivative(f, x0, check) {
-    if (check == "true") {
+    if (check) {
       const k = this.getDerivative(f, x0);
       const b = f(x0) - k * x0;
       const x1 = this.WIN.LEFT;
@@ -192,16 +193,18 @@ class Graph2DComponent extends Component {
   render() {
     this.canvas.clear();
     this.printOXY();
-    this.funcs.forEach((funcs) => {
-      if (funcs) {
-        this.printFunction(funcs.f, funcs.color, funcs.width);
-        if (document.querySelector(".inputTangentCheckbox").checked)
-          funcs.check = true;
-        else funcs.check = false;
-        this.printDerivative(funcs.f, this.derivativeX, funcs.check);
-        this.getZero(funcs.f, funcs.start, funcs.end, 0.0001);
-        this.printIntegral(funcs.f, funcs.start, funcs.end, 100, funcs.integ);
-        this.getPoint(funcs.f, funcs.inputX);
+    this.funcs.forEach((func) => {
+      if (func) {
+        func.width = (document.querySelector(`.funcWidthRange${func.funcIndex - 1}`)).value;
+        func.color = (document.querySelector(`.colorValue${func.funcIndex - 1}`)).value;
+        this.printFunction(func.f, func.color, func.width);
+        if (document.querySelector(`.inputTangentCheckbox${func.funcIndex - 1}`).checked)
+          func.check = true;
+        else func.check = false;
+        this.printDerivative(func.f, this.derivativeX, func.check);
+        // this.getZero(func.f, func.start, func.end, 0.0001);
+        // this.printIntegral(func.f, func.start, func.end, 100, func.integ);
+        // this.getPoint(func.f, func.inputX);
       }
     });
   }

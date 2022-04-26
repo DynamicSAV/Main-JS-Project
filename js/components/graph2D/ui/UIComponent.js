@@ -11,7 +11,7 @@ function tg(x) {
 class UIComponent extends Component {
   constructor(options) {
     super(options);
-    this.num = 0;
+    this.num = 1;
     this.cmd = false;
   }
 
@@ -29,7 +29,20 @@ class UIComponent extends Component {
 
     const inputTangent = document.createElement("input");
     inputTangent.setAttribute("type", "checkbox");
-    inputTangent.setAttribute("class", "inputTangentCheckbox");
+    inputTangent.setAttribute("class", `inputTangentCheckbox${this.num}`);
+
+    const range = document.createElement("input");
+    range.setAttribute("type", "range");
+    range.setAttribute("min", "1");
+    range.setAttribute("max", "15");
+    range.setAttribute("value", "2");
+    range.setAttribute("class", `funcWidthRange${this.num}`);
+
+    const colorInput = document.createElement("input");
+    colorInput.setAttribute("type", "color");
+    colorInput.style.width = 24;
+    colorInput.style.height = 24;
+    colorInput.setAttribute("class", `colorValue${this.num}`);
 
     const button = document.createElement("button");
     button.innerHTML = "Удалить";
@@ -38,12 +51,16 @@ class UIComponent extends Component {
       this.callbacks.delFunction(input.dataset.num);
       funcsField.removeChild(input);
       funcsField.removeChild(button);
+      funcsField.removeChild(range);
+      funcsField.removeChild(colorInput);
       funcsField.removeChild(inputTangent);
     });
-    
+
     const funcsField = document.getElementById("funcsField");
     funcsField.appendChild(input);
     funcsField.appendChild(button);
+    funcsField.appendChild(range);
+    funcsField.appendChild(colorInput);
     funcsField.appendChild(inputTangent);
     this.num++;
   }
@@ -52,7 +69,16 @@ class UIComponent extends Component {
     try {
       let f;
       eval(`f = function(x) { return ${input.value}; }`);
-      this.callbacks.addFunction(f, input.dataset.num);
+      this.callbacks.addFunction(
+        f,
+        input.dataset.num,
+        null,
+        null,
+        false,
+        null,
+        null,
+        this.num
+      );
     } catch (e) {}
   }
 }
