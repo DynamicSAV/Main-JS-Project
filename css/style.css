@@ -40,6 +40,7 @@ body {
   border: 0;
   height: 50px;
   border-radius: 5px;
+  cursor: pointer;
   background: #ffffff;
   box-shadow: 5px 5px 100px #e2e2e2, -5px -5px 100px #ffffff;
   font-size: 1.5rem;
@@ -167,6 +168,7 @@ body {
   background: #ff5a5a;
   box-shadow: 5px 5px 100px #e2e2e2, -5px -5px 100px #ffffff;
   font-weight: bold;
+  margin-left: 5px;
 }
 
 .hide {
@@ -193,6 +195,7 @@ body {
   border: 10px solid #4676d7;
   padding: 10px 20px 10px 20px;
   height: 85vh;
+  border-radius: 1rem;
 }
 
 .graph3DList {
@@ -374,3 +377,7 @@ th {
 .viewElementButton:active {
   border: none;
 }
+#funcWidthRange {
+  margin: 10px 0px;
+}
+

@@ -6,7 +6,7 @@ class Polygon {
     this.lumen = 1;
   }
   hexToRgb(hex) {
-		const resault = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    const resault = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return resault
       ? {
           r: parseInt(resault[1], 16),
@@ -16,6 +16,6 @@ class Polygon {
       : { r: 255, g: 0, b: 0 };
   }
   rgbToHex(r, g, b) {
-		return `rgb(${r},${g},${b})`;
-	}
+    return `rgb(${r},${g},${b})`;
+  }
 }

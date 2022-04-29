@@ -1,1 +1,1 @@
-function figure() {};
+function figure() {}

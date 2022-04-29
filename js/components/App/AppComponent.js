@@ -21,7 +21,7 @@ class AppComponent extends Component {
       id: "graph2D",
       parent: this.id,
       template: template.graph2DTemplate,
-      className: "graph2Dclass"
+      className: "graph2Dclass",
     });
 
     this.graph3D = new Graph3DComponent({

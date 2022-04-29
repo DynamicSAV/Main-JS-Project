@@ -4,12 +4,11 @@ Template.prototype.uiTemplate = () => `
       <button class = "defaultButton" id="addFunction">Добавить функцию</button>
       <div id="funcsField"></div>
     </div>
-    <div>
-    <div>empty</div>
-    </div>
   </div>
 `;
 
-{/* <div class = "tangentLine">
+{
+  /* <div class = "tangentLine">
 <input id = "cb" class = "checkLine" type = "checkbox">Построить касательную</input>
-</div> */}
+</div> */
+}

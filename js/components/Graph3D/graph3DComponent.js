@@ -68,7 +68,7 @@ class Graph3DComponent extends Component {
     document.addEventListener("keydown", (event) => {
       this.keyDownHandler(event);
     });
-    const addElemBtn = document.querySelectorAll(".AddElem");
+    const addElemBtn = document.querySelectorAll(".addElem");
     addElemBtn.forEach((elem) => {
       elem.addEventListener("click", () => {
         switch (elem.dataset.figure) {
@@ -79,7 +79,10 @@ class Graph3DComponent extends Component {
               new figure().Sphere(10, 20, this.color.value)
             );
           case "Tor":
-            return this.figures.push(new figure().Tor(this.color.value));
+            console.log(new figure().Tor(10, 5, 20, this.color.value));
+            return this.figures.push(
+              new figure().Tor(10, 5, 20, this.color.value)
+            );
         }
       });
     });

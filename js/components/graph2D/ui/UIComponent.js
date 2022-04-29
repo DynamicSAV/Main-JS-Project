@@ -37,6 +37,7 @@ class UIComponent extends Component {
     range.setAttribute("max", "15");
     range.setAttribute("value", "2");
     range.setAttribute("class", `funcWidthRange${this.num}`);
+    range.setAttribute("id", "funcWidthRange")
 
     const colorInput = document.createElement("input");
     colorInput.setAttribute("type", "color");

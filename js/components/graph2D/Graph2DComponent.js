@@ -195,10 +195,17 @@ class Graph2DComponent extends Component {
     this.printOXY();
     this.funcs.forEach((func) => {
       if (func) {
-        func.width = (document.querySelector(`.funcWidthRange${func.funcIndex - 1}`)).value;
-        func.color = (document.querySelector(`.colorValue${func.funcIndex - 1}`)).value;
+        func.width = document.querySelector(
+          `.funcWidthRange${func.funcIndex - 1}`
+        ).value;
+        func.color = document.querySelector(
+          `.colorValue${func.funcIndex - 1}`
+        ).value;
         this.printFunction(func.f, func.color, func.width);
-        if (document.querySelector(`.inputTangentCheckbox${func.funcIndex - 1}`).checked)
+        if (
+          document.querySelector(`.inputTangentCheckbox${func.funcIndex - 1}`)
+            .checked
+        )
           func.check = true;
         else func.check = false;
         this.printDerivative(func.f, this.derivativeX, func.check);

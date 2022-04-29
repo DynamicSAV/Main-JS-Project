@@ -6,11 +6,11 @@ class Complex {
 
   toString() {
     if (this.im) {
-        if (this.im > 0) {
-            return `${this.re}+i*${this.im}`;
-        }
-        return `${this.re}-i*${-this.im}`;
+      if (this.im > 0) {
+        return `${this.re}+i*${this.im}`;
+      }
+      return `${this.re}-i*${-this.im}`;
     }
     return this.re.toString();
-}
+  }
 }

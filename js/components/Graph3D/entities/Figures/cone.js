@@ -1,25 +1,20 @@
-figure.prototype.Tor = (R = 10, r = 5, count = 20, color) => {
+figure.prototype.Cone = (color, a = 4, b = 4, c = 4, count = 10) => {
   const points = [];
   const edges = [];
   const polygons = [];
   const twoPi = 2 * Math.PI;
+  const check = true;
 
   let t = 0;
   let dt = Math.PI / count;
   let df = twoPi / count;
-  while (t <= twoPi) {
-    let f = 0;
-    while (f <= twoPi) {
-      points.push(
-        new Point(
-          (R + r * cos(t)) * cos(f),
-          r * sin(t),
-          (R + r * cos(t)) * sin(f)
-        )
-      );
+  while (t <= Math.PI) {
+    let f = -twoPi;
+    while (f < twoPi) {
+      points.push(new Point(a * t * Math.sin(f), b * t, c * t * Math.cos(f)));
       f += df;
     }
-    t += dt;
+    t += df;
   }
 
   for (let i = 0; i < points.length; i++) {
@@ -36,16 +31,12 @@ figure.prototype.Tor = (R = 10, r = 5, count = 20, color) => {
 
     if (points[i + 1] && points[i + count + 1]) {
       if ((i + 1) % count == 0) {
-        polygons.push(new Polygon([i, i + count, i + 1, i - count + 1], color));
-      } else {
-        polygons.push(new Polygon([i, i + 1, i + count + 1, i + count], color));
-      }
-      if (i + 1 == points.length - (count + 1)) {
         polygons.push(
-          new Polygon(
-            [i + 1, i + 1 + count, i + 1 + 1, i + 1 - count + 1],
-            color
-          )
+          new Polygon([i, i + count, i + 1, i - count + 1], color, check)
+        );
+      } else {
+        polygons.push(
+          new Polygon([i, i + count, i + count + 1, i + 1], color, check)
         );
       }
     }

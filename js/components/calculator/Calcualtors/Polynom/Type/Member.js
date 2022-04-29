@@ -5,6 +5,6 @@ class Member {
   }
 
   toString() {
-    return this.value ? `${this.value}*x^${this.power}` : '';
-}
+    return this.value ? `${this.value}*x^${this.power}` : "";
+  }
 }
