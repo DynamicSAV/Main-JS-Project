@@ -79,9 +79,50 @@ class Graph3DComponent extends Component {
               new figure().Sphere(10, 20, this.color.value)
             );
           case "Tor":
-            console.log(new figure().Tor(10, 5, 20, this.color.value));
             return this.figures.push(
-              new figure().Tor(10, 5, 20, this.color.value)
+              new figure().Tor(10, 5, 21, this.color.value)
+            );
+          case "Cone":
+            return this.figures.push(
+              new figure().Cone(this.color.value, 4, 4, 4, 10)
+            );
+          case "HyperbolicParaboloid":
+            return this.figures.push(
+              new figure().HyperbolicParaboloid(
+                20,
+                10,
+                10,
+                10,
+                this.color.value
+              )
+            );
+          case "Hyperboloid1":
+            return this.figures.push(
+              new figure().Hyperboloid1(1, 1, 1, 10, this.color.value)
+            );
+          case "Hyperboloid2":
+            return this.figures.push(
+              new figure().Hyperboloid2(-3, 3, 3, 10, this.color.value)
+            );
+          case "ParabolicCylinder":
+            return this.figures.push(
+              new figure().ParabolicCylinder(10, 8, 10, this.color.value)
+            );
+          case "EllipticalCylinder":
+            return this.figures.push(
+              new figure().EllipticalCylinder(10, 8, 20, 10, this.color.value)
+            );
+          case "Ellipsoid":
+            return this.figures.push(
+              new figure().Ellipsoid(10, 15, 20, 10, this.color.value)
+            );
+          case "HyperbolicCylinder":
+            return this.figures.push(
+              new figure().HyperbolicCylinder(0.5, 1, 3, 10, this.color.value)
+            );
+          case "EllipticalParabaloid":
+            return this.figures.push(
+              new figure().EllipticalParabaloid(7, 10, 0.5, 10, this.color.value)
             );
         }
       });

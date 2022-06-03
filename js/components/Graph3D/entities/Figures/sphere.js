@@ -11,11 +11,7 @@ figure.prototype.Sphere = (R = 10, count = 20, color) => {
     let f = 0;
     while (f < twoPi) {
       points.push(
-        new Point(
-          R * Math.cos(t),
-          R * Math.sin(t) * Math.cos(f),
-          R * Math.sin(t) * Math.sin(f)
-        )
+        new Point(R * Math.cos(t), R * Math.sin(t) * Math.cos(f), R * Math.sin(t) * Math.sin(f))
       );
       f += df;
     }
@@ -41,12 +37,7 @@ figure.prototype.Sphere = (R = 10, count = 20, color) => {
         polygons.push(new Polygon([i, i + 1, i + count + 1, i + count], color));
       }
       if (i + 1 == points.length - 1 - count) {
-        polygons.push(
-          new Polygon(
-            [i + 1, i + 1 + count, i + 1 + 1, i + 1 - count + 1],
-            color
-          )
-        );
+        polygons.push(new Polygon([i + 1, i + 1 + count, i + 1 + 1, i + 1 - count + 1], color));
       }
     }
   }

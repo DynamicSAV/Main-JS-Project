@@ -11,14 +11,14 @@ Template.prototype.graph3DTemplate = () => `
     <button class = "addElem" data-figure = "Cube">Куб</button>
     <button class = "addElem" data-figure = "Sphere">Сфера</button>
     <button class = "addElem" data-figure = "Tor">Тор</button>
-    <button class = "addElem" data-figure = "">Конус</button>
-    <button class = "addElem" data-figure = "Cylinder" >Цилиндр</button>
-    <button class = "addElem" data-figure = "">Пусто</button>
-    <button class = "addElem" data-figure = "">Пусто</button>
-    <button class = "addElem" data-figure = "">Пусто</button>
-    <button class = "addElem" data-figure = "">Пусто</button>
-    <button class = "addElem" data-figure = "">Пусто</button>
-    <button class = "addElem" data-figure = "">Пусто</button>
+    <button class = "addElem" data-figure = "Cone">Конус</button>
+    <button class = "addElem" data-figure = "HyperbolicParaboloid">Гиперболический Пароболоид</button>
+    <button class = "addElem" data-figure = "Hyperboloid1">Hyperboloid1</button>
+    <button class = "addElem" data-figure = "Hyperboloid2">Hyperboloid2</button>
+    <button class = "addElem" data-figure = "ParabolicCylinder">ParabolicCylinder</button>
+    <button class = "addElem" data-figure = "EllipticalCylinder">EllipticalCylinder</button>
+    <button class = "addElem" data-figure = "Ellipsoid">Ellipsoid</button>
+    <button class = "addElem" data-figure = "HyperbolicCylinder">HyperbolicCylinder</button>
   </div>
   <div class = "dividingLine"></div>
     <div class = "objectElementSelector">

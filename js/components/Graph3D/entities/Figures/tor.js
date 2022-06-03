@@ -1,4 +1,4 @@
-figure.prototype.Tor = (R = 10, r = 5, count = 20, color) => {
+figure.prototype.Tor = (R = 10, r = 5, count = 21, color) => {
   const points = [];
   const edges = [];
   const polygons = [];
@@ -10,13 +10,7 @@ figure.prototype.Tor = (R = 10, r = 5, count = 20, color) => {
   while (t <= twoPi) {
     let f = 0;
     while (f <= twoPi) {
-      points.push(
-        new Point(
-          (R + r * cos(t)) * cos(f),
-          r * sin(t),
-          (R + r * cos(t)) * sin(f)
-        )
-      );
+      points.push(new Point((R + r * cos(t)) * cos(f), r * sin(t), (R + r * cos(t)) * sin(f)));
       f += df;
     }
     t += dt;
@@ -41,15 +35,9 @@ figure.prototype.Tor = (R = 10, r = 5, count = 20, color) => {
         polygons.push(new Polygon([i, i + 1, i + count + 1, i + count], color));
       }
       if (i + 1 == points.length - (count + 1)) {
-        polygons.push(
-          new Polygon(
-            [i + 1, i + 1 + count, i + 1 + 1, i + 1 - count + 1],
-            color
-          )
-        );
+        polygons.push(new Polygon([i + 1, i + 1 + count, i + 1 + 1, i + 1 - count + 1], color));
       }
     }
   }
-
   return new Subject(points, edges, polygons);
 };
